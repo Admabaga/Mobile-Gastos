@@ -8,7 +8,7 @@ function Menu() {
         <nav className="navbar navbar-expand-lg menu navbar-dark fixed-top">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
-                Navbar
+                Gastos APP
                 </a>
                 <button
                 className="navbar-toggler"
@@ -24,12 +24,12 @@ function Menu() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <Link className="nav-link active" aria-current="page" to="/">
-                        Home
+                    <Link className="nav-link" aria-current="page" to="/">
+                        Inicio
                     </Link>
                     </li>
                     <li className="nav-item">
-                    <Link className='nav-link active' to={'/usuarios'}>
+                    <Link className='nav-link' to={'/usuarios'}>
                         Usuarios
                     </Link>
                     </li>
