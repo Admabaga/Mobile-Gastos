@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from 'axios'
+import '../RespuestaServer.css'
 
 export default function FormularioUsuario() {
   const [nombre, setNombre] = useState("");
@@ -8,19 +10,33 @@ export default function FormularioUsuario() {
   const [password, setPassword] = useState("");
   const [fechaRegistro, setFechaRegistro] = useState("");
   const [ciudad, setCiudad] = useState("");
+  const [cargando, setCargando] = useState(false)
+  const [respuestaServer, setRespuestaServer] = useState("")
+  const [respuestaServerError, setRespuestaServerError] = useState(false)
 
-  function procesarFormulario(evento){
+  async function procesarFormulario(evento) {
     evento.preventDefault()
-    let usuario = {
-        nombre,
-        edad,
-        telefono,
-        correo,
-        contraseña:password,
-        fechaRegistro,
-        ciudad
+    setCargando(true)
+    try {
+      const response = await axios.post('http://localhost:8000/usuarios',
+        {
+          nombre,
+          edad,
+          telefono,
+          correo,
+          contraseña: password,
+          fechaRegistro,
+          ciudad
+        })
+      setRespuestaServer("Usuario registrado!")
+      setRespuestaServerError(false)
+    } catch (error) {
+      setRespuestaServer(`Error al enviar datos: ${error.response?.data || error.message}`)
+      setRespuestaServerError(true)
+
+    } finally {
+      setCargando(false)
     }
-    console.log(usuario)
 
   }
 
@@ -105,10 +121,21 @@ export default function FormularioUsuario() {
               </div>
               <button
                 type="submit"
-                className="btn btn-outline-success my-3 w-100"
+                className="btn btn-outline-secondary my-3 w-100"
               >
                 Registrarse
               </button>
+              {cargando ? (
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border" ></div>
+                </div>
+              ) : (<>
+                {respuestaServer && (
+                  <p className={`respuestaServer ${respuestaServerError ? 'error' : 'success'}`}>
+                    {respuestaServer}
+                  </p>
+                )}</>
+              )}
             </form>
           </div>
         </div>

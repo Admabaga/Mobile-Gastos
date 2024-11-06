@@ -1,0 +1,19 @@
+.respuestaServer {
+    font-size: 1.1em;
+    color: #ffffff;
+    background-color: #4CAF50;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .respuestaServer.error {
+    background-color: #f44336;
+  }
+  
+  .respuestaServer.warning {
+    background-color: #ff9800;
+  }
+  

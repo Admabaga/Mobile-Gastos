@@ -15,7 +15,7 @@ function Home() {
           labore molestias saepe recusandae veritatis perspiciatis voluptas
           fuga, nostrum facilis sed!
         </p>
-        <button className="btn btn-success">Ver más</button>
+        <button className="btn btn-secondary">Ver más</button>
       </div>
       <div>
         <Acercade />
