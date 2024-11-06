@@ -1,6 +1,6 @@
 #GESTION GASTOS APP
 
-## By Sebastian Poveda Arias
+## By Adrian Barrera Garcia
 
 - Proyecto movil para consumir servicios web
 - React funcional
