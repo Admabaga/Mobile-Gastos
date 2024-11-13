@@ -40,6 +40,11 @@ function Menu() {
                                     Metodo pago
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to={'/listadoUsuarios'}>
+                                    Listado Usuarios
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
