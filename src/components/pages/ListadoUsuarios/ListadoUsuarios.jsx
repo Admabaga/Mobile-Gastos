@@ -1,84 +1,58 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import usuarioIcono from "../../../img/iconoUsuario.png"
+import './CardUsuarios.css'
 
 export default function ListadoUsuarios() {
-  const [datosApi, setDatosApi] = useState(null);
-  const [respuestaServer, setRespuestaServer] = useState("");
-  const [respuestaError, setRespuestaError] = useState(false);
-  const [spinner, setSpinner] = useState(false);
+  const [datosApi, setDatosApi] = useState(null)
+  const [respuestaServer, setRespuestaServer] = useState("")
+  const [respuestaError, setRespuestaError] = useState(false)
+  const [spinner, setSpinner] = useState(false)
 
-<<<<<<< HEAD
-    const [datosApi, setDatosApi] = useState(null);
-    const [estadoCarga, setEstadoCarga] = useState(true);
-    // Programo el use effect para garantizar que llamara el servicio y voy a traer los datos
-    useEffect(() => {
-        const fetchData = async () => {
-            setDatosApi(dataFake);
-            setEstadoCarga(false);
-        };
-        fetchData();
-    }, []);
-    return (
-        <>
-            <br /><br /><br />
-            { }
-            
-            <div className="container">
-            <h3>Listado de Usuarios</h3>
-                <div className="row row-cols-1 row-cols-md-3 g-3">
-                    {datosApi && datosApi.map(usuario => (
-                        <div className="col" key={usuario.id}>
-                            <div className="card h-100 shadow p-5">
-                                <h5>Nombre: {usuario.nombre}</h5>
-                                <h4>Ciudad: {usuario.ciudad}</h4>
-                            </div>
-                        </div>
-                    ))}
-=======
   useEffect(() => {
     const fetchData = async () => {
-      setSpinner(true);
+      setSpinner(true)
       try {
-        const respuesta = await axios.get("http://localhost:8000/usuarios");
-        setDatosApi(respuesta.data);
-        setRespuestaError(false);
+        const respuesta = await axios.get("http://localhost:8000/usuarios")
+        setDatosApi(respuesta.data)
+        setRespuestaError(false)
       } catch (error) {
-        setRespuestaServer(`Error al enviar datos: ${error.message}`);
-        setRespuestaError(true);
+        setRespuestaServer(`Error al enviar datos: ${error.message}`)
+        setRespuestaError(true)
       } finally {
-        setSpinner(false);
+        setSpinner(false)
       }
-    };
-    fetchData();
-  }, []);
+    }
+    fetchData()
+  }, [])
   return (
     <>
-      <br />
-      <br />
-      <br />
-      <div className="container">
-        <h3>Listado de Usuarios</h3>
-        <div className="row row-cols-1 row-cols-md-3 g-3">
+      <div className="container my-5">
+        <h3 className="text-center mb-4">Usuarios Registrados</h3>
+        <div className="row row-cols-1 row-cols-md-3 g-4">
           {datosApi &&
             datosApi.map((usuario) => (
               <div className="col" key={usuario.id}>
-                <div className="card h-100 shadow p-5">
-                  <h4>Nombre: {usuario.nombre}</h4>
-                  <h5>Ciudad: {usuario.ciudad}</h5>
-                  <h5>Telefono: {usuario.telefono}</h5>
->>>>>>> 67f818840fe0fa703e36b141decffbf4d43aa901
+                <div className="card h-100 shadow-sm rounded-4">
+                  <div className="card-body">
+                  <img 
+                        src={usuarioIcono} 
+                        className="img-fluid  mb-3 "
+                    />
+                    <h4 className="card-title text-primary mb-2">
+                      {usuario.nombre}
+                    </h4>
+                    <h6 className="card-subtitle mb-3 text-secondary">
+                      Ciudad: {usuario.ciudad}
+                    </h6>
+                    <p className="card-text text-muted">
+                      Teléfono: {usuario.telefono}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
         <br />
         <br />
         {spinner ? (
@@ -90,9 +64,8 @@ export default function ListadoUsuarios() {
           <>
             {respuestaServer && (
               <p
-                className={`respuestaServer ${
-                  respuestaError ? "error" : "success"
-                }`}
+                className={`respuestaServer ${respuestaError ? "error" : "success"
+                  }`}
               >
                 {respuestaServer}
               </p>

@@ -1,0 +1,42 @@
+.container {
+    font-family: 'Roboto', sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #ffffff; /* Fondo blanco puro */
+    border: 1px solid #ddd; /* Bordes sutiles */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03); /* Efecto de escala al pasar el mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title.text-primary.mb-2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #023b79 !important; /* Azul primario */
+}
+
+.card-subtitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6c757d; 
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #495057; /* Gris oscuro */
+}
+
+.text-muted {
+    font-size: 0.9rem;
+    color: #868e96; /* Gris claro */
+}

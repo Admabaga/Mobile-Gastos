@@ -37,7 +37,7 @@ export default function FormularioMetodoPago() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-12">
-                        <h3>Registro Metodo de pago:</h3>
+                        <h3 className="text-center mb-4">Registro Metodo de pago:</h3>
                         <form action="" onSubmit={sendData} className="p-5 border rounded shadow">
                             <div className="row">
                                 <div className="col-12 ">
@@ -70,6 +70,7 @@ export default function FormularioMetodoPago() {
                             {cargando ? (
                                 <div className="d-flex justify-content-center">
                                     <div className="spinner-border" ></div>
+                                    <span className="m-1">Enviando...</span>
                                 </div>
                             ) : (<>
                                 {respuestaServer && (

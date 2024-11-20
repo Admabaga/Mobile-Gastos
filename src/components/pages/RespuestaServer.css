@@ -16,4 +16,13 @@
   .respuestaServer.warning {
     background-color: #ff9800;
   }
+
+  .col.border.p-2.m-3.rounded-4{
+    border-color: #0d135f !important;
+  }
+
+  .col.border.p-2.m-3.rounded-4:hover{
+    background-color: #ececfc;
+  }
+  
   

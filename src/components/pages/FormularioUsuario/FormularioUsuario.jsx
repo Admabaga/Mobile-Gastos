@@ -42,11 +42,10 @@ export default function FormularioUsuario() {
 
   return (
     <>
-      <br />
       <div className="container my-5">
         <div className="row">
           <div className="col-12">
-            <h3>Registro de usuario:</h3>
+            <h3 className="text-center mb-4">Registro de usuario</h3>
             <form action="" className="p-5 border rounded shadow" onSubmit={procesarFormulario}>
               <div className="row">
                 <div className="col-12">

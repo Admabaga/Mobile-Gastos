@@ -1,5 +1,6 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import ListadoGastos from "../ListadoGastos/ListadoGastos"
 import '../RespuestaServer.css'
 
 export default function FormularioGastos() {
@@ -11,6 +12,7 @@ export default function FormularioGastos() {
     const [respuestaServer, setRespuestaServer] = useState('')
     const [respuestaError, setRespuestaError] = useState(false)
 
+    useEffect
     async function enviarDatos(evento) {
         evento.preventDefault()
         setCargando(true)
@@ -36,11 +38,10 @@ export default function FormularioGastos() {
 
     return (
         <>
-            <br />
             <div className="container my-5">
                 <div className="row">
                     <div className="col-12">
-                        <h3>Registro gastos:</h3>
+                        <h3 className="text-center mb-4">Registro gastos</h3>
                         <form action="" onSubmit={enviarDatos} className="p-5 border rounded shadow">
                             <div className="row">
                                 <div className="col-12">
@@ -83,6 +84,7 @@ export default function FormularioGastos() {
                             {cargando ? (
                                 <div className="d-flex justify-content-center">
                                     <div className="spinner-border" ></div>
+                                    <span className="m-1">Enviando...</span>
                                 </div>
                             ) : (<>
                                 {respuestaServer && (
