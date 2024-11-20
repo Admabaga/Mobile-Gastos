@@ -4,7 +4,6 @@ export default function MetodoPago(){
     return(
         <>
             <FormularioMetodoPago></FormularioMetodoPago>
-
         </>
     )
 }
