@@ -128,7 +128,9 @@ export default function FormularioUsuario() {
               {cargando ? (
                 <div className="d-flex justify-content-center">
                   <div className="spinner-border" ></div>
+                  <span className="m-1">Enviando...</span>
                 </div>
+                
               ) : (<>
                 {respuestaServer && (
                   <p className={`respuestaServer ${respuestaServerError ? 'error' : 'success'}`}>
