@@ -7,7 +7,7 @@ function Menu() {
         <>
             <nav className="navbar navbar-expand-lg menu navbar-dark fixed-top">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="/">
                         Gastos APP
                     </a>
                     <button

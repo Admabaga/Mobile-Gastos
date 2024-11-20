@@ -43,8 +43,9 @@ export default function ListadoUsuarios() {
         <>
             <br /><br /><br />
             { }
-            <h3>Listado de Usuarios</h3>
+            
             <div className="container">
+            <h3>Listado de Usuarios</h3>
                 <div className="row row-cols-1 row-cols-md-3 g-3">
                     {datosApi && datosApi.map(usuario => (
                         <div className="col" key={usuario.id}>
