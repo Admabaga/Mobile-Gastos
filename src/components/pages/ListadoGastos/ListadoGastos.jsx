@@ -23,7 +23,7 @@ export default function ListadoGastos({ gastoUsuario }) {
         traerUsuarios()
     }, [])
 
-    useEffect(() => {
+    const getGastos = () => {
         if (gastoUsuario === "verGastosPorUsuario") {
             if (usuarioId) {
                 traerGastosPorUsuario()
@@ -31,6 +31,9 @@ export default function ListadoGastos({ gastoUsuario }) {
         } else {
             traerTodosLosGastos()
         }
+    }
+    useEffect(() => {
+        getGastos()
     }, [gastoUsuario, usuarioId])
 
     function traerTodosLosGastos() {
@@ -58,14 +61,20 @@ export default function ListadoGastos({ gastoUsuario }) {
                 setGastos(respuesta.data)
                 setRespuestaError(false)
             } catch (error) {
-                let errorMessage = error.message
-                setRespuestaServer(`Error al enviar datos: ${errorMessage}`)
+                setRespuestaServer(`Error al obtener datos: ${error.request?.data || error.message}`)
                 setRespuestaError(true)
             } finally {
                 setSpinner(false)
             }
         }
         traerGastos()
+    }
+
+    const refresh = () => {
+        setGastos([])
+        setRespuestaServer('')
+        setRespuestaError(false)
+        getGastos()
     }
 
     return (
@@ -121,6 +130,9 @@ export default function ListadoGastos({ gastoUsuario }) {
                     )}
                 </>
             )}
+            <button className="btn btn-outline-secondary w-100 my-4" onClick={refresh}>
+                Refrescar
+            </button>
         </div>
     )
 }

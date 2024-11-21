@@ -9,22 +9,32 @@ export default function ListadoUsuarios() {
   const [respuestaError, setRespuestaError] = useState(false)
   const [spinner, setSpinner] = useState(false)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setSpinner(true)
-      try {
-        const respuesta = await axios.get("http://localhost:8000/usuarios")
-        setDatosApi(respuesta.data)
-        setRespuestaError(false)
-      } catch (error) {
-        setRespuestaServer(`Error al enviar datos: ${error.message}`)
-        setRespuestaError(true)
-      } finally {
-        setSpinner(false)
-      }
+
+  const fetchData = async () => {
+    setSpinner(true)
+    try {
+      const respuesta = await axios.get("http://localhost:8000/usuarios")
+      setDatosApi(respuesta.data)
+      setRespuestaError(false)
+    } catch (error) {
+      setRespuestaServer(`Error al enviar datos: ${error.message}`)
+      setRespuestaError(true)
+    } finally {
+      setSpinner(false)
     }
+  }
+
+  useEffect(() => {
     fetchData()
   }, [])
+
+  const refresh = () => {
+    setDatosApi([])
+    setRespuestaServer('')
+    setRespuestaError(false)
+    fetchData()
+  }
+
   return (
     <>
       <div className="container my-5">
@@ -35,9 +45,9 @@ export default function ListadoUsuarios() {
               <div className="col" key={usuario.id}>
                 <div className="card h-100 shadow-sm rounded-4">
                   <div className="card-body">
-                  <img 
-                        src={usuarioIcono} 
-                        className="img-fluid  mb-3 "
+                    <img
+                      src={usuarioIcono}
+                      className="img-fluid  mb-3 "
                     />
                     <h4 className="card-title text-primary mb-2">
                       {usuario.nombre}
@@ -72,6 +82,9 @@ export default function ListadoUsuarios() {
             )}
           </>
         )}
+        <button className="btn btn-outline-secondary w-100 my-4" onClick={refresh}>
+          Refrescar
+        </button>
       </div>
     </>
   );
