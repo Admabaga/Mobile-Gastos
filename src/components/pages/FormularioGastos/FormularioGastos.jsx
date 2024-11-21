@@ -7,24 +7,24 @@ export default function FormularioGastos() {
     const [nombre, setNombreGasto] = useState('')
     const [monto, setMontoGasto] = useState('')
     const [fecha, setFechaGasto] = useState('')
-    const [usuarios, setUsuarios] = useState('')
+    const [usuarios, setUsuarios] = useState([])
     const [descripcion, setDescripcion] = useState('')
     const [cargando, setCargando] = useState(false)
     const [respuestaServer, setRespuestaServer] = useState('')
     const [respuestaError, setRespuestaError] = useState(false)
     const [usuarioId, setUsuarioId] = useState('')
 
-    useEffect(()=>{
-        const traerUsuarios = async () =>{
+    useEffect(() => {
+        const traerUsuarios = async () => {
             try {
                 const response = await axios.get('http://localhost:8000/usuarios')
                 setUsuarios(response.data)
-            }catch(error){
+            } catch (error) {
                 console.log('Error al cargar proyectos:', error)
             }
         }
         traerUsuarios()
-    },[])
+    }, [])
 
     useEffect
     async function enviarDatos(evento) {
@@ -42,6 +42,7 @@ export default function FormularioGastos() {
             )
             setRespuestaServer('Gasto registrado!')
             setRespuestaError(false)
+            console.log(usuarioId)
         } catch (error) {
             setRespuestaServer(`Error al enviar datos: ${error.response?.data || error.message}`)
             setRespuestaError(true)
@@ -70,23 +71,17 @@ export default function FormularioGastos() {
                             </div>
                             <div className="row">
                                 <div className="col-12">
-                                    <label className="form-label">Usuario: </label>
-                                    <select                                        type="text"
+                                    <label className="form-label my-2">Usuario: </label>
+                                    <select
                                         className="form-control"
                                         value={usuarioId}
                                         onChange={(usuarioId) => setUsuarioId(usuarioId.target.value)}
-                                        >
+                                    >
                                         <option value="">Seleccione un usuario</option>
                                         {usuarios.map((usuario) => (
                                             <option key={usuario.id} value={usuario.id}>{usuario.nombre}</option>
                                         ))}
- 
                                     </select>
-                                    <option
-                                        type="text"
-                                        className="form-control"
-                                        value={nombre}
-                                        onChange={(nombre) => setNombreGasto(nombre.target.value)} />
                                 </div>
                             </div>
                             <div className="row mt-3">
@@ -136,5 +131,5 @@ export default function FormularioGastos() {
         </>
     )
 
-    
+
 }

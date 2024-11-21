@@ -14,7 +14,7 @@ export default function Gastos(){
             <div className="container text-center">
                 <div className="row">
                     <div
-                     className="col border p-2 m-3 rounded-4"
+                     className="col border p-2 m-3 rounded-4 text-center"
                      onClick={()=>cambiarInfo("registrarGasto")}
                      >
                         Registrar gasto
@@ -25,10 +25,17 @@ export default function Gastos(){
                      >
                         Ver gastos
                     </div>
+                    <div
+                     className="col border p-2 m-3 rounded-4"
+                     onClick={()=>cambiarInfo("verGastosPorUsuario")}
+                     >
+                        Ver gastos por usuario
+                    </div>
                 </div>
             </div>
             {infoMain == "registrarGasto" && <FormularioGastos/>}
             {infoMain == "verGastos" && <ListadoGastos/>}
+            {infoMain == "verGastosPorUsuario" && <ListadoGastos gastoUsuario={infoMain}/>}
         </>
     )
 }

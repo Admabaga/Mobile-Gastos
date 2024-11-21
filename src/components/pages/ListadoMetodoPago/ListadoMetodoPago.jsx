@@ -32,7 +32,7 @@ export default function ListadoMetodos(){
             <div className="row row-cols-1 row-cols-md-3 g-4">
                 {metodos &&
                     metodos.map((metodo) => (
-                        <div className="col" key={`${metodo.id}-${metodo.nombreMetodo}`}>
+                        <div className="col" key={metodo.id}>
                             <div className="card h-100 shadow-sm rounded-4 border-0">
                                 <div className="card-body">
                                     <img 
