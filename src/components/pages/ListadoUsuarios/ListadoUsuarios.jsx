@@ -64,7 +64,6 @@ export default function ListadoUsuarios() {
             ))}
         </div>
         <br />
-        <br />
         {spinner ? (
           <div className="d-flex justify-content-center ">
             <div className="spinner-border"></div>

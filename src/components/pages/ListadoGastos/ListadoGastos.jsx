@@ -115,11 +115,11 @@ export default function ListadoGastos({ gastoUsuario }) {
                     </div>
                 ))}
             </div>
-
+            <br />
             {spinner ? (
                 <div className="d-flex justify-content-center">
                     <div className="spinner-border"></div>
-                    <span className="m-1">Cargando...</span>
+                    <span className="m-1 ">Cargando...</span>
                 </div>
             ) : (
                 <>

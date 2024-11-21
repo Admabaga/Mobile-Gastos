@@ -55,7 +55,7 @@ export default function ListadoMetodos() {
                             </div>
                         ))}
                 </div>
-                <br /><br />
+                <br />
                 {spinner ? (
                     <div className="d-flex justify-content-center ">
                         <div className="spinner-border"></div>
