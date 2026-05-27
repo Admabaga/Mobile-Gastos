@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# ── Seguridad — variables de entorno ─────────────────────────────
+.env
+.env.local
+.env.production
+# .env.example sí se puede subir (tiene solo valores de ejemplo)

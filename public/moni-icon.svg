@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="g" x1="10" y1="90" x2="90" y2="10" gradientUnits="userSpaceOnUse">
+      <stop offset="0%"   stop-color="#4a28c8"/>
+      <stop offset="45%"  stop-color="#7c55f5"/>
+      <stop offset="100%" stop-color="#c4affe"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left column -->
+  <line x1="16" y1="80" x2="16" y2="22"
+        stroke="url(#g)" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- M shape: left-peak → valley → right-peak → arrow tip -->
+  <polyline points="16,22 50,58 74,22 87,8"
+            stroke="url(#g)" stroke-width="11"
+            stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- Right column -->
+  <line x1="74" y1="80" x2="74" y2="22"
+        stroke="url(#g)" stroke-width="11" stroke-linecap="round"/>
+
+  <!-- Arrowhead at tip -->
+  <polygon points="91,4 79,10 85,18" fill="#c4affe"/>
+
+  <!-- Bar chart: 3 ascending bars -->
+  <rect x="30" y="69" width="7.5" height="11" rx="2.5" fill="url(#g)" opacity="0.80"/>
+  <rect x="42" y="62" width="7.5" height="18" rx="2.5" fill="url(#g)" opacity="0.90"/>
+  <rect x="54" y="55" width="7.5" height="25" rx="2.5" fill="url(#g)"/>
+</svg>

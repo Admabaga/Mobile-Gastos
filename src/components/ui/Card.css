@@ -1,0 +1,35 @@
+.app-card {
+  background-color: var(--surface, #fff);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(13, 19, 95, 0.12) !important;
+}
+
+.app-card__icon img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
+
+.app-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--primary, #0d135f);
+  margin: 0;
+}
+
+.app-card__subtitle {
+  font-size: 0.9rem;
+  color: var(--muted, #6c757d);
+  margin: 0;
+}
+
+.app-card__footer {
+  border-top: 1px solid #eef0f7;
+  padding-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted, #6c757d);
+}

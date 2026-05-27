@@ -1,0 +1,20 @@
+{
+  "name": "Nummi — Control Financiero",
+  "short_name": "Nummi",
+  "description": "Controlá tus finanzas personales desde cualquier dispositivo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0c1d",
+  "theme_color": "#7c6ff7",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/nummi-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "productivity"],
+  "lang": "es-CO"
+}
